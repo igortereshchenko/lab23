@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+ <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">charac_name</th>
+                <th scope="col">charac_description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in result %}
+            <tr >
+
+                <td> {{item.charac_name}} </td>
+                <td> {{item.charac_description}} </td>
+                <td>
+                    <a href="/delete_characteristic/{{item.charac_name}}/{{item.charac_description}}" type="button" class="btn btn-warning" >Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+            <tr>
+                <td> <a href="/new_characteristic" type="button" class="btn btn-warning">New Characteristic</a> </td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+<script src="{{ url_for('static', filename='js/person.js') }}"></script>
+{% endblock %}
